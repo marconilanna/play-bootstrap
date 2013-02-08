@@ -1,15 +1,40 @@
-logs
-project/project
-project/target
-target
-tmp
-.history
-dist
-/.idea
-/*.iml
-/out
-/.idea_modules
-/.classpath
-/.project
-/RUNNING_PID
-/.settings
+# .gitignore
+
+# Play
+dist/
+RUNNING_PID
+
+# sbt
+project/project/
+target/
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*~
+*.bak
+*.old
+*.tmp
+nohup.out
+tmp/
+
+# vim
+.*.sw[a-z]
+
+# Eclipse
+.cache
+.classpath
+.project
+.settings/
+.target/
+bin/
+
+# Mac OS X
+._*
+.DS_Store
+
+# Windows
+Desktop.ini
+Thumbs.db
