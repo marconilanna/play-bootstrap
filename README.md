@@ -2,6 +2,10 @@
 
 Starting point for Play 2.1 Scala projects
 
+## Highlights
+
+* ScalaTest (replaces specs2)
+
 ## Getting Started
 
 0. Edit the app name and version in `project/Build.scala`
