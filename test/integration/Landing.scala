@@ -14,13 +14,17 @@
  * limitations under the License.
  */
 
-package controllers
+package test.integration
 
-import play.api._
-import play.api.mvc._
+import play.api.test._
+import play.api.test.Helpers._
 
-object Application extends Controller {
-	def index = Action { implicit request =>
-		Ok(views.html.index("Hello"))
+class Landing extends org.scalatest.FunSuite {
+	test("Landing page") {
+		running(TestServer(3333), HTMLUNIT) { browser =>
+			browser.goTo("http://localhost:3333/")
+			assert(browser.title.contains("Home"))
+			assert(browser.pageSource.contains("Hello"))
+		}
 	}
 }

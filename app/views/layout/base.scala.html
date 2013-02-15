@@ -1,4 +1,4 @@
-/*
+@*
  * Copyright 2013 Marconi Lanna
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,15 +12,18 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ *@
 
-package controllers
+@(title      : String=""
+, siteName   : String="Site Name"
+, description: String=""
+, id         : String=""
+, klass      : String=""
+)(content: Html)
 
-import play.api._
-import play.api.mvc._
+<!DOCTYPE html>
+<title>@if(title){@title - }@siteName</title>
+@if(description){<meta name="description" content="@description">}
 
-object Application extends Controller {
-	def index = Action { implicit request =>
-		Ok(views.html.index("Hello"))
-	}
-}
+<body@if(id){ id="@id"}@if(klass){ class="@klass"}>
+@content
