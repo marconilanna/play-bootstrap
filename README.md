@@ -14,6 +14,7 @@ Starting point for Play 2.1 Scala projects
 0. Change the application secret in `conf/application.conf`
 0. Set the database configuration parameters in `conf/application.conf`
 0. Set the site name and Google Analytics ID in `app/views/layout/base.scala.html`
+0. Replace favicon and Apple touch icons
 0. Have fun!
 
 ## License
