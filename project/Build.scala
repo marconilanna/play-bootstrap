@@ -16,6 +16,7 @@ object ApplicationBuild extends Build {
 
 	val main = play.Project(appName, appVersion, appDependencies).settings(
 		  scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature", "-Xlint")
+		, templatesImport ++= Seq("helpers._")
 		, testOptions in Test := Nil // Disables built-in specs2, it conflicts with ScalaTest
 		)
 }

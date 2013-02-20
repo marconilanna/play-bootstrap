@@ -4,6 +4,7 @@ Starting point for Play 2.1 Scala projects
 
 ## Highlights
 
+* Convenience handlers for static resources
 * Optimized Google Analytics snippet
 * The best ideas from HTML5 Boilerplate
 * ScalaTest (replaces specs2)
