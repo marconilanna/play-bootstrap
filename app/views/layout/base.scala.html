@@ -29,6 +29,8 @@
 <body@if(id){ id="@id"}@if(klass){ class="@klass"}>
 @content
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery||document.write('<script src="@js.url("jquery-1.9.1")"><\/script>')</script>
 <script>
 var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']]
 ;(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0]
