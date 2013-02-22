@@ -10,6 +10,7 @@ Starting point for Play 2.1 Scala projects
 
 0. Edit the app name and version in `project/Build.scala`
 0. Change the application secret in `conf/application.conf`
+0. Set the database configuration parameters in `conf/application.conf`
 0. Have fun!
 
 ## License
