@@ -4,6 +4,7 @@ Starting point for Play 2.1 Scala projects
 
 ## Highlights
 
+* Externalized SQL statements
 * Separate configuration environments for production, testing, and development
 * Convenience handlers for static resources
 * Uncompressed assets for easy debugging in dev; minified and gzipped in production
