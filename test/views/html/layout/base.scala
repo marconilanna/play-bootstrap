@@ -100,13 +100,19 @@ class base extends org.scalatest.FunSuite {
 	test("Body: no id, no class") {
 		val result = layout.base()(null)
 		assert(result.contentType === "text/html")
-		assert(result.body.contains("<body>"))
+		assert(result.body.contains("<body class=\"container\">"))
 	}
 
 	test("Body: id only") {
 		val result = layout.base(id = "testId")(null)
 		assert(result.contentType === "text/html")
-		assert(result.body.contains("<body id=\"testId\">"))
+		assert(result.body.contains("<body id=\"testId\" class=\"container\">"))
+	}
+
+	test("Body: empty class") {
+		val result = layout.base(klass = "")(null)
+		assert(result.contentType === "text/html")
+		assert(result.body.contains("<body>"))
 	}
 
 	test("Body: class only") {

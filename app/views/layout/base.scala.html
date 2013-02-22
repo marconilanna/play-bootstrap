@@ -18,19 +18,21 @@
 , siteName   : String="Site Name"
 , description: String=""
 , id         : String=""
-, klass      : String=""
+, klass      : String="container"
 )(content: Html)
 
 <!DOCTYPE html>
 <title>@if(title){@title - }@siteName</title>
 @if(description){<meta name="description" content="@description">}
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+@css("bootstrap-2.3.1")
 
 <body@if(id){ id="@id"}@if(klass){ class="@klass"}>
 @content
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery||document.write('<script src="@js.url("jquery-1.9.1")"><\/script>')</script>
+@js("bootstrap-2.3.1")
 <script>
 var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']]
 ;(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0]
