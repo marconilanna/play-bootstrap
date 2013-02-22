@@ -1,5 +1,8 @@
 # .gitignore
 
+# Local configuration
+local.conf
+
 # Play
 dist/
 RUNNING_PID

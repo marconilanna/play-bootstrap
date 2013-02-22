@@ -1,0 +1,14 @@
+# local.conf
+
+include "local/dev.conf"
+
+# Sensitive information such as usernames, passwords and API tokens are put here to avoid
+# commiting them to source control.
+
+db.default.user="root"
+db.default.password=""
+
+# Uncomment to enable SQL statement logging
+#
+# db.default.logStatements=true
+# logger.com.jolbox.bonecp=DEBUG
