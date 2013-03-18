@@ -10,6 +10,7 @@ object ApplicationBuild extends Build {
 		  jdbc
 		, anorm
 		, "org.scalatest"                  %% "scalatest"                   % "1.9.1"    % "test"
+		, "org.seleniumhq.selenium"        %  "selenium-java"               % "2.32.0"   % "test"
 		)
 
 	val main = play.Project(appName, appVersion, appDependencies).settings(
