@@ -32,8 +32,14 @@
 <body@if(id){ id="@id"}@if(klass){ class="@klass"}>
 @content
 
+<!--[if lt IE 9]>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery||document.write('<script src="@js.url("jquery-1.9.1")"><\/script>')</script>
+<![endif]-->
+<!--[if gte IE 9]><!-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script>window.jQuery||document.write('<script src="@js.url("jquery-2.0.0")"><\/script>')</script>
+<!--<![endif]-->
 @js("bootstrap-2.3.1")
 <script>
 var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']]
