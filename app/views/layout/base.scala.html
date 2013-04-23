@@ -15,11 +15,11 @@
  *@
 
 @(title      : String=""
-, siteName   : String="Site Name"
+, siteName   : String=m('sitename)
 , description: String=""
 , id         : String=""
 , klass      : String="container"
-)(content: Html)
+)(content: Html)(implicit lang: Lang)
 
 <!DOCTYPE html>
 <title>@if(title){@title - }@siteName</title>

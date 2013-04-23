@@ -19,4 +19,5 @@ import scala.language.implicitConversions
 package object util {
 
 	implicit def symbolToString(symbol: Symbol) = symbol.name
+	implicit def symbolAnyToStringAny(t: Tuple2[Symbol, Any]) = (t._1.name, t._2)
 }

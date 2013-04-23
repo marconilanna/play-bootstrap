@@ -16,11 +16,15 @@
 
 package controllers
 
+import util._
+
 import play.api._
 import play.api.mvc._
 
+import System.{currentTimeMillis => now}
+
 object Application extends Controller {
 	def index = Action { implicit request =>
-		Ok(views.html.index("Hello"))
+		Ok(views.html.index(m('welcomeMessage, 'now -> now)))
 	}
 }
