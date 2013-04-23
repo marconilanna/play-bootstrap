@@ -27,4 +27,16 @@ class Landing extends org.scalatest.FunSuite {
 			assert(browser.pageSource.contains("Hello"))
 		}
 	}
+
+	test("Language selection") {
+		running(TestServer(3333), HTMLUNIT) { browser =>
+			browser.goTo("http://localhost:3333/lang/pt-BR")
+			assert(browser.title.contains("Página Principal"))
+			assert(browser.pageSource.contains("Oi! Hoje é"))
+
+			browser.goTo("http://localhost:3333/lang/en-US")
+			assert(browser.title.contains("Home"))
+			assert(browser.pageSource.contains("Hi! Today is"))
+		}
+	}
 }

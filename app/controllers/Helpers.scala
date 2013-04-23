@@ -1,4 +1,4 @@
-@*
+/*
  * Copyright 2013 Marconi Lanna
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,10 +12,24 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *@
+ */
 
-@(message: String)(implicit lang: Lang)
-@layout.base(m('home)) {
-	<p>@message
-	@languageSelector()
+package controllers
+
+import play.api.mvc._
+
+import java.net.URL
+
+private[controllers] trait Helpers { this: Controller =>
+	private val home = routes.Application.index.url
+
+	def RedirectToRefererOrHome(implicit request: Request[_]) = Redirect {
+		request.headers.get("Referer").fold(home){ url =>
+			try {
+				new URL(url).getFile
+			} catch {
+				case e: Exception => home
+			}
+		}
+	}
 }

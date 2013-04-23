@@ -18,7 +18,7 @@ object ApplicationBuild extends Build {
 	val main = play.Project(appName, appVersion, appDependencies).settings(
 		  scalaVersion := "2.10.1"
 		, scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature", "-Xlint")
-		, templatesImport ++= Seq("helpers._", "util._")
+		, templatesImport ++= Seq("helpers._", "tags._", "util._")
 		, testOptions in Test := Nil // Disables built-in specs2, it conflicts with ScalaTest
 		)
 }

@@ -14,8 +14,11 @@
  * limitations under the License.
  *@
 
-@(message: String)(implicit lang: Lang)
-@layout.base(m('home)) {
-	<p>@message
-	@languageSelector()
-}
+@()(implicit lang: Lang)
+<div class="languageSelector">
+	<a href="@routes.Application.lang("en")">@m('en)</a> |
+	<a href="@routes.Application.lang("en-US")">@m('enUS)</a> |
+	<a href="@routes.Application.lang("en-CA")">@m('enCA)</a> |
+	<a href="@routes.Application.lang("pt")">@m('pt)</a> |
+	<a href="@routes.Application.lang("pt-BR")">@m('ptBR)</a>
+</div>

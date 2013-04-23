@@ -5,5 +5,8 @@
 # Home page
 GET     /                                  controllers.Application.index
 
+# Language selector
+GET     /lang/:lang                        controllers.Application.lang(lang: String)
+
 # Public static resources
 GET     /*file                             controllers.Assets.at(path="/public", file)
