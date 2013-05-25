@@ -25,6 +25,8 @@
 <title>@if(title){@title - }@siteName</title>
 @if(description){<meta name="description" content="@description">}
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link rel="dns-prefetch" href="//ajax.googleapis.com">
+<link rel="dns-prefetch" href="//google-analytics.com">
 @css("bootstrap-2.3.1")
 @css("font-awesome-3.0.2")
 <!--[if IE 7]>@css("font-awesome-ie7-3.0.2")<![endif]-->
@@ -44,6 +46,6 @@
 <script>
 var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']]
 ;(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0]
-g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js'
+g.src='google-analytics.com/ga.js'
 s.parentNode.insertBefore(g,s)}(document,'script'))
 </script>
