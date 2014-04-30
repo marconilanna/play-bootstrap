@@ -10,7 +10,7 @@ object ApplicationBuild extends Build {
 		  jdbc
 		, anorm
 		, "mysql"                          %  "mysql-connector-java"        % "5.1.30"
-		, "com.ibm.icu"                    %  "icu4j"                       % "51.1"
+		, "com.ibm.icu"                    %  "icu4j"                       % "53.1"
 		, "org.scalatest"                  %% "scalatest"                   % "1.9.1"    % "test"
 		, "org.seleniumhq.selenium"        %  "selenium-java"               % "2.32.0"   % "test"
 		)
