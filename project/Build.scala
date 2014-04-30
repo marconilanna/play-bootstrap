@@ -12,7 +12,7 @@ object ApplicationBuild extends Build {
 		, "mysql"                          %  "mysql-connector-java"        % "5.1.30"
 		, "com.ibm.icu"                    %  "icu4j"                       % "53.1"
 		, "org.scalatest"                  %% "scalatest"                   % "2.1.5"    % "test"
-		, "org.seleniumhq.selenium"        %  "selenium-java"               % "2.32.0"   % "test"
+		, "org.seleniumhq.selenium"        %  "selenium-java"               % "2.41.0"   % "test"
 		)
 
 	val main = play.Project(appName, appVersion, appDependencies).settings(
