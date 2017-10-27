@@ -22,16 +22,16 @@ package models.persistence
  * All database interactions are actually delegated to the `Dao` data access trait.
  */
 private[persistence] trait ActiveRecord[M <: ActiveRecord[M]] { this: M =>
-	val id: PrimaryKey
+  val id: PrimaryKey
 
-	protected def dao: Dao[M]
+  protected def dao: Dao[M]
 
-	private[persistence] def withId(id: PrimaryKey): M
+  private[persistence] def withId(id: PrimaryKey): M
 
-	private[persistence] lazy val toSeq = getClass.getDeclaredFields.toSeq map { f =>
-		f.setAccessible(true)
-		(Symbol(f.getName), f.get(this))
-	}
+  private[persistence] lazy val toSeq = getClass.getDeclaredFields.toSeq map { f =>
+    f.setAccessible(true)
+    (Symbol(f.getName), f.get(this))
+  }
 
-	def save() = dao.save(this)
+  def save() = dao.save(this)
 }

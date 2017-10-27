@@ -20,23 +20,23 @@ import play.api.test._
 import play.api.test.Helpers._
 
 class Landing extends org.scalatest.FunSuite {
-	test("Landing page") {
-		running(TestServer(3333), HTMLUNIT) { browser =>
-			browser.goTo("http://localhost:3333/")
-			assert(browser.title.contains("Home"))
-			assert(browser.pageSource.contains("Hello"))
-		}
-	}
+  test("Landing page") {
+    running(TestServer(3333), HTMLUNIT) { browser =>
+      browser.goTo("http://localhost:3333/")
+      assert(browser.title.contains("Home"))
+      assert(browser.pageSource.contains("Hello"))
+    }
+  }
 
-	test("Language selection") {
-		running(TestServer(3333), HTMLUNIT) { browser =>
-			browser.goTo("http://localhost:3333/lang/pt-BR")
-			assert(browser.title.contains("Página Principal"))
-			assert(browser.pageSource.contains("Oi! Hoje é"))
+  test("Language selection") {
+    running(TestServer(3333), HTMLUNIT) { browser =>
+      browser.goTo("http://localhost:3333/lang/pt-BR")
+      assert(browser.title.contains("Página Principal"))
+      assert(browser.pageSource.contains("Oi! Hoje é"))
 
-			browser.goTo("http://localhost:3333/lang/en-US")
-			assert(browser.title.contains("Home"))
-			assert(browser.pageSource.contains("Hi! Today is"))
-		}
-	}
+      browser.goTo("http://localhost:3333/lang/en-US")
+      assert(browser.title.contains("Home"))
+      assert(browser.pageSource.contains("Hi! Today is"))
+    }
+  }
 }

@@ -25,19 +25,19 @@ import scala.collection.mutable
 import com.ibm.icu.text.MessageFormat
 
 object m {
-	private val messagesCache = mutable.Map[Lang, Resource]()
-	private def messages(lang: Lang) =
-			messagesCache.getOrElseUpdate(lang, Resource("i18n/messages." + lang.code + ".conf"))
+  private val messagesCache = mutable.Map[Lang, Resource]()
+  private def messages(lang: Lang) =
+      messagesCache.getOrElseUpdate(lang, Resource("i18n/messages." + lang.code + ".conf"))
 
-	private val formatCache = mutable.Map[(String, Lang), MessageFormat]()
-	private def format(key: String)(implicit lang: Lang) =
-			formatCache.getOrElseUpdate((key, lang), new MessageFormat(m(key), lang.toLocale))
+  private val formatCache = mutable.Map[(String, Lang), MessageFormat]()
+  private def format(key: String)(implicit lang: Lang) =
+      formatCache.getOrElseUpdate((key, lang), new MessageFormat(m(key), lang.toLocale))
 
-	def apply(key: String)(implicit lang: Lang): String = messages(lang)(key).getOrElse {
-		Logger.warn(s"Invalid i18n key '$key', locale '${lang.code}'")
-		key
-	}
+  def apply(key: String)(implicit lang: Lang): String = messages(lang)(key).getOrElse {
+    Logger.warn(s"Invalid i18n key '$key', locale '${lang.code}'")
+    key
+  }
 
-	def apply(key: String, args: (String, Any)*)(implicit lang: Lang): String =
-			format(key).format(args.toMap.asJava)
+  def apply(key: String, args: (String, Any)*)(implicit lang: Lang): String =
+      format(key).format(args.toMap.asJava)
 }

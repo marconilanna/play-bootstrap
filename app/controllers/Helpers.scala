@@ -21,15 +21,15 @@ import play.api.mvc._
 import java.net.URL
 
 private[controllers] trait Helpers { this: Controller =>
-	private val home = routes.Application.index.url
+  private val home = routes.Application.index.url
 
-	def RedirectToRefererOrHome(implicit request: Request[_]) = Redirect {
-		request.headers.get("Referer").fold(home){ url =>
-			try {
-				new URL(url).getFile
-			} catch {
-				case e: Exception => home
-			}
-		}
-	}
+  def RedirectToRefererOrHome(implicit request: Request[_]) = Redirect {
+    request.headers.get("Referer").fold(home){ url =>
+      try {
+        new URL(url).getFile
+      } catch {
+        case e: Exception => home
+      }
+    }
+  }
 }

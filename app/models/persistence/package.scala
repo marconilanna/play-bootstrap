@@ -17,6 +17,6 @@
 package models
 
 package object persistence {
-	type PrimaryKey = anorm.Pk[Long]
-	val NotAssigned = anorm.NotAssigned
+  type PrimaryKey = anorm.Pk[Long]
+  val NotAssigned = anorm.NotAssigned
 }

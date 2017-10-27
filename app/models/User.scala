@@ -21,21 +21,21 @@ import persistence._
 import java.util.Date
 
 case class User
-		( id             : PrimaryKey = NotAssigned
-		, name           : String
-		, legalName      : String
-		, email          : String
-		, password       : String
-		, status         : String
-		, created        : Date = new Date()
-		, firstLogin     : Option[Date]
-		, lastLogin      : Option[Date]
-		, passwordChanged: Option[Date]
-		, failedAttempts : Int = 0
-		)
-		extends UserActiveRecord {
+    ( id             : PrimaryKey = NotAssigned
+    , name           : String
+    , legalName      : String
+    , email          : String
+    , password       : String
+    , status         : String
+    , created        : Date = new Date()
+    , firstLogin     : Option[Date]
+    , lastLogin      : Option[Date]
+    , passwordChanged: Option[Date]
+    , failedAttempts : Int = 0
+    )
+    extends UserActiveRecord {
 
-	def username = email
+  def username = email
 }
 
 object User extends UserDao

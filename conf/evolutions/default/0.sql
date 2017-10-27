@@ -14,8 +14,8 @@
 # --- !Ups
 
 create database sample
-	charset utf8mb4
-	collate utf8mb4_bin;
+  charset utf8mb4
+  collate utf8mb4_bin;
 
 # --- !Downs
 

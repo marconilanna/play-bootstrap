@@ -7,21 +7,21 @@
 # --- !Ups
 
 create table user
-	( id                 bigint         not null auto_increment primary key
-	, name               varchar(30)    not null
-	, legal_name         varchar(70)    not null
-	, email              varchar(100)   not null unique
-	, password           varchar(60)    not null
-	, status             enum('pending', 'active', 'inactive') not null
-	, created            timestamp      not null default now()
-	, first_login        timestamp      null
-	, last_login         timestamp      null
-	, password_changed   timestamp      null
-	, failed_attempts    tinyint        not null default 0
-	, index (name)
-	, index (legal_name)
-	)
-	engine=InnoDB;
+  ( id                 bigint         not null auto_increment primary key
+  , name               varchar(30)    not null
+  , legal_name         varchar(70)    not null
+  , email              varchar(100)   not null unique
+  , password           varchar(60)    not null
+  , status             enum('pending', 'active', 'inactive') not null
+  , created            timestamp      not null default now()
+  , first_login        timestamp      null
+  , last_login         timestamp      null
+  , password_changed   timestamp      null
+  , failed_attempts    tinyint        not null default 0
+  , index (name)
+  , index (legal_name)
+  )
+  engine=InnoDB;
 
 # --- !Downs
 

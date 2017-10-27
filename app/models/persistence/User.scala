@@ -21,36 +21,38 @@ import models.User
 import java.util.Date
 
 private[models] trait UserActiveRecord extends ActiveRecord[User] { this: User =>
-	protected def dao = User
+  protected def dao = User
 
-	private[persistence] def withId(id: PrimaryKey) = copy(id = id)
+  private[persistence] def withId(id: PrimaryKey) = copy(id = id)
 }
 
 private[models] trait UserDao extends Dao[User] { this: User.type =>
-	protected def table = "user"
+  protected def table = "user"
 
-	protected def parse(row: Row) = User(
-		  row[PrimaryKey]("id")
-		, row[String]("name")
-		, row[String]("legal_name")
-		, row[String]("email")
-		, row[String]("password")
-		, row[String]("status")
-		, row[Date]("created")
-		, row[Option[Date]]("first_login")
-		, row[Option[Date]]("last_login")
-		, row[Option[Date]]("password_changed")
-		, row[Int]("failed_attempts")
-	)
+  protected def parse(row: Row) = User(
+    row[PrimaryKey]("id")
+  , row[String]("name")
+  , row[String]("legal_name")
+  , row[String]("email")
+  , row[String]("password")
+  , row[String]("status")
+  , row[Date]("created")
+  , row[Option[Date]]("first_login")
+  , row[Option[Date]]("last_login")
+  , row[Option[Date]]("password_changed")
+  , row[Int]("failed_attempts")
+  )
 
-	def byName(name: String) = selectMany('byName, 'name -> name)
+  def byName(name: String) = selectMany('byName, 'name -> name)
 
-	def byNameLike(name: String) = selectMany('byNameLike, 'name -> infix(name))
+  def byNameLike(name: String) = selectMany('byNameLike, 'name -> infix(name))
 
-	def byLegalName(legalName: String) = selectMany('byLegalName, 'legalName -> legalName)
+  def byLegalName(legalName: String) = selectMany('byLegalName, 'legalName -> legalName)
 
-	def byLegalNameLike(legalName: String) = selectMany('byLegalNameLike
-			, 'legalName -> infix(legalName))
+  def byLegalNameLike(legalName: String) = selectMany(
+    'byLegalNameLike
+  , 'legalName -> infix(legalName)
+  )
 
-	def byEmail(email: String) = selectOne('byEmail, 'email -> email)
+  def byEmail(email: String) = selectOne('byEmail, 'email -> email)
 }

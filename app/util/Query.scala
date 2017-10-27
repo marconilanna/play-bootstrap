@@ -17,11 +17,11 @@
 package util
 
 final class Query(table: String) {
-	private val query = Resource("query/" + table + ".sql")
+  private val query = Resource("query/" + table + ".sql")
 
-	def apply(q: String) = query(q).get
+  def apply(q: String) = query(q).get
 }
 
 object Query {
-	def apply(table: String) = new Query(table)
+  def apply(table: String) = new Query(table)
 }

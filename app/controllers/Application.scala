@@ -26,11 +26,11 @@ import play.api.Play.current
 import System.{currentTimeMillis => now}
 
 object Application extends Controller with Helpers {
-	def index = Action { implicit request =>
-		Ok(views.html.index(m('welcomeMessage, 'now -> now)))
-	}
+  def index = Action { implicit request =>
+    Ok(views.html.index(m('welcomeMessage, 'now -> now)))
+  }
 
-	def lang(lang: String) = Action { implicit request =>
-		RedirectToRefererOrHome.withLang(Lang(lang))
-	}
+  def lang(lang: String) = Action { implicit request =>
+    RedirectToRefererOrHome.withLang(Lang(lang))
+  }
 }

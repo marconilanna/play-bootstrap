@@ -27,16 +27,16 @@ import com.typesafe.config._
  * Scala interface to it.
  */
 private[util] final class Resource(resource: String) {
-	private val cfg = ConfigFactory.parseFile(new File("conf/" + resource))
-			.resolve(ConfigResolveOptions.noSystem)
+  private val cfg = ConfigFactory.parseFile(new File("conf/" + resource))
+      .resolve(ConfigResolveOptions.noSystem)
 
-	def apply (key: String) = if (has(key)) Some(cfg.getString (key)) else None
-	def int   (key: String) = if (has(key)) Some(cfg.getInt    (key)) else None
-	def bool  (key: String) = if (has(key)) Some(cfg.getBoolean(key)) else None
-	def double(key: String) = if (has(key)) Some(cfg.getDouble (key)) else None
-	def has   (key: String) = cfg.hasPath(key)
+  def apply (key: String) = if (has(key)) Some(cfg.getString (key)) else None
+  def int   (key: String) = if (has(key)) Some(cfg.getInt    (key)) else None
+  def bool  (key: String) = if (has(key)) Some(cfg.getBoolean(key)) else None
+  def double(key: String) = if (has(key)) Some(cfg.getDouble (key)) else None
+  def has   (key: String) = cfg.hasPath(key)
 }
 
 private[util] object Resource {
-	def apply(resource: String) = new Resource(resource)
+  def apply(resource: String) = new Resource(resource)
 }
